@@ -60,9 +60,189 @@ SELECT * FROM products;
 CREATE TABLE orders (
     order_id          SERIAL      PRIMARY KEY     NOT NULL, 
     user_id           INTEGER                     NOT NULL, 
+    product_id        INTEGER                     NOT NULL,
     order_amount      INTEGER, 
     order_date        DATE,
-CONSTRAINT orders_fk_1     FOREIGN KEY(user_id)      REFERENCES user_access(user_id)
+CONSTRAINT orders_fk_1     FOREIGN KEY(user_id)      REFERENCES user_access(user_id),
+CONSTRAINT orders_fk_2     FOREIGN KEY(product_id)      REFERENCES products(product_id)
 );
 
 SELECT * FROM orders;
+
+
+/********************
+**** INSERT DATA ****
+********************/
+
+/* INSERT USER_ACCESS */
+INSERT INTO user_access (
+    username, 
+    password, 
+    email, 
+    user_create_date)
+VALUES (
+    'leonidasyopan',
+    '10081985',
+    'leonidasyopan@gmail.com',
+    current_timestamp);
+
+INSERT INTO user_access (
+    username, 
+    password, 
+    email, 
+    user_create_date)
+VALUES (
+    'cs313visitor',
+    'cs313pass',
+    'test@gmail.com',
+    current_timestamp);
+
+SELECT * FROM user_access;
+
+/* INSERT USER_ACCOUNT */
+INSERT INTO user_account (
+    user_id, 
+    first_name, 
+    middle_name, 
+    last_name, 
+    birthday,
+    phone_number,
+    address, 
+    city, 
+    state, 
+    country, 
+    zipcode)
+VALUES (
+    (SELECT user_id FROM user_access WHERE username = 'leonidasyopan'),
+    'Leonidas',
+    '',
+    'Yopan',
+    '1985-08-10',
+    '+55 48 99823-5707',
+    'Rua Marinho Arthur Mariano, 30',
+    'São José',
+    'SC',
+    'Brazil',
+    '88106-555');
+
+INSERT INTO user_account (
+    user_id, 
+    first_name, 
+    middle_name, 
+    last_name, 
+    birthday,
+    phone_number,
+    address, 
+    city, 
+    state, 
+    country, 
+    zipcode)
+VALUES (
+    (SELECT user_id FROM user_access WHERE username = 'cs313visitor'),
+    'BYU',
+    'Idaho',
+    'Visitor',
+    '1995-01-01',
+    '+1 208 496-1411',
+    '525 South Center St.',
+    'Rexburg',
+    'ID',
+    'USA',
+    '83460');
+
+SELECT * FROM user_account;
+
+/* INSERT PRODUCT_CATEGORY */
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'book'
+);
+
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'DVD'
+);
+
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'smartphone'
+);
+
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'tablet'
+);
+
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'laptop'
+);
+
+INSERT INTO product_category (
+    category_name)
+VALUES (
+    'desktop'
+);
+
+SELECT * FROM product_category;
+
+/* INSERT PRODUCTS */
+INSERT INTO products (
+    product_name, 
+    product_price, 
+    product_description, 
+    product_image, 
+    product_category_id, 
+    product_stock)
+VALUES (
+    'The Book of Mormon',
+    '3.5',
+    'A religious book about the people who lived in the Americas',
+    'https://images-na.ssl-images-amazon.com/images/I/31%2B70VO5FHL.jpg',
+    (SELECT product_category_id FROM product_category WHERE category_name = 'book'),
+    15);
+
+INSERT INTO products (
+    product_name, 
+    product_price, 
+    product_description, 
+    product_image, 
+    product_category_id, 
+    product_stock)
+VALUES (
+    'The Goonies',
+    '9.5',
+    'The Goonies is a 1985 American adventure comedy film co-produced and directed by Richard Donner from a screenplay by Chris Columbus, based on a story by executive producer Steven Spielberg.',
+    'https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/The_Goonies.jpg/220px-The_Goonies.jpg',
+    (SELECT product_category_id FROM product_category WHERE category_name = 'DVD'),
+    6);
+
+SELECT * FROM products;
+
+
+/* INSERT ORDERS */
+INSERT INTO orders (
+    user_id, 
+    product_id,
+    order_amount, 
+    order_date)
+VALUES (
+    (SELECT user_id FROM user_access WHERE username = 'leonidasyopan'),
+    (SELECT product_id FROM products WHERE product_name = 'The Book of Mormon'),
+    3,    
+    current_timestamp);
+
+SELECT * FROM orders;
+
+/* EXTRA CODE */
+
+UPDATE product_category
+SET 
+    category_name = 'book'
+WHERE
+    product_category_id = '1';
