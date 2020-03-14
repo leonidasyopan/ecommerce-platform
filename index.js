@@ -11,12 +11,11 @@ const pool = new Pool({connectionString: connectionString});
 
 app.set("port", PORT);
 
-// app.get("/getItems", getItems);
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-app.get('/', (req, res) => res.render('pages/index'))
-app.get('/getItems', (request, response) => {
+// app.get('/', (req, res) => res.render('pages/index'))
+app.get('/', (request, response) => {
 
     if (request.query.id) {
         var id = request.query.id;
@@ -33,6 +32,8 @@ app.get('/getItems', (request, response) => {
     }
 
 })
+
+app.get("/getItems", getItems);
 
 app.listen(app.get("port"), function() {
     console.log("Now listening for connection on port: ", app.get("port"));
