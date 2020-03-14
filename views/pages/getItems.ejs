@@ -20,7 +20,20 @@
                     catch(err) {
                         console.log(err.message);
                     }
-                    document.getElementById("itemDetails").innerHTML = JSON.stringify(data);
+
+                    let dataFromDB = JSON.stringify(data);
+
+                    /* Create a div to hold all the info of the Selected team */
+                    var output = '';    
+                    output += "<h2>" + dataFromDB.product_name + "</h2>";    
+                    output += '<figure class="image-item"><img src="' + dataFromDB.product_image + '" alt="' + dataFromDB.product_name + ' Thumb"></figure>';
+                    output += '<div id="item-data">';
+                    output += "<p><strong>Price:</strong> " + dataFromDB.product_price + "</p>";
+                    output += "<p><strong>Description:</strong> " + dataFromDB.product_description + "</p>";
+                    output += "<p><strong>Items in Stock:</strong> " + dataFromDB.product_stock + "</p>";                     
+                    output += "</div>';
+
+                    document.getElementById("itemDetails").innerHTML = dataFromDB;
 
                 }
             }
