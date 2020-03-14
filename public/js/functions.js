@@ -21,17 +21,20 @@ function getItems() {
             
             localStorage.setItem("currentListOfItems", beforeStorageDate);
 
+            /*
             var afterStorageDate = JSON.parse(localStorage.getItem("currentListOfItems")); 
 
             console.log(afterStorageDate);
 
             return afterStorageDate;
+            */
         }
     }
     ajax.send();
 }
 
-function buildHTMLDisplay() {
+function buildHTMLDisplay() {    
+
     console.log("Entered buildHTMLDisplay function");
     
     var dataFromDB = JSON.parse(localStorage.getItem("currentListOfItems"));  
