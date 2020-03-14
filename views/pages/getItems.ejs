@@ -4,43 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Items</title>
-    <script>
-        function getItems() {
-            console.log("in function");
-            let id = document.getElementById("item").value;
-            console.log(id);
-            let ajax = new XMLHttpRequest();
-            ajax.open('GET', '/getItems?id=' + id);
-
-            ajax.onreadystatechange = function() {
-                if (ajax.readyState === 4 && ajax.status == 200) {
-                    try {
-                        var data = JSON.parse(ajax.responseText);
-                    }
-                    catch(err) {
-                        console.log(err.message);
-                    }
-
-                    let dataFromDB = JSON.stringify(data);
-
-                    /* Create a div to hold all the info of the Selected team */
-                    var output = '';    
-                    output += "<h2>" + dataFromDB.product_name + "</h2>";    
-                    output += '<figure class="image-item"><img src="' + dataFromDB.product_image + '" alt="' + dataFromDB.product_name + ' Thumb"></figure>';
-                    output += '<div id="item-data">';
-                    output += "<p><strong>Price:</strong> " + dataFromDB.product_price + "</p>";
-                    output += "<p><strong>Description:</strong> " + dataFromDB.product_description + "</p>";
-                    output += "<p><strong>Items in Stock:</strong> " + dataFromDB.product_stock + "</p>";                     
-                    output += "</div>';
-
-                    document.getElementById("itemDetails").innerHTML = dataFromDB;
-
-                }
-            }
-            ajax.send();
-        }
-        
-    </script>
+    
 </head>
 <body>
     <h1>Get Items</h1>
@@ -54,5 +18,6 @@
     <input type="submit" value="Get Items" onclick="getItems()">
     <div id="itemDetails"></div>
     
+    <script src="js/functions.js"></script>
 </body>    
 </html>
