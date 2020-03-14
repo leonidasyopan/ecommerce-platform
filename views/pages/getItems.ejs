@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Items</title>
+    <script>
+        function getItems() {
+            console.log("in function");
+            let id = document.getElementById("item").value;
+            console.log(id);
+            let ajax = new XMLHttpRequest();
+            ajax.open('GET', '/getItems?id=' + id);
+
+            ajax.onreadystatechange = function() {
+                if (ajax.readyState === 4 && ajax.status == 200) {
+                    try {
+                        var data = JSON.parse(ajax.responseText);
+                    }
+                    catch(err) {
+                        console.log(err.message);
+                    }
+                    document.getElementById("itemDetails").innerHTML = JSON.stringify(data);
+
+                }
+            }
+            ajax.send();
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>Get Items</h1>
+    
+    <p>Choose one item to display our options: book, dvd, smartphone</p>
+    <p>(type your choice in the box bellow using all small caps).</p>
+
+    <label for="item"></label>
+    <input type="text" name="item" id="item">
+
+    <input type="submit" value="Get Items" onclick="getItems()">
+    <div id="itemDetails"></div>
+    
+</body>    
+</html>
