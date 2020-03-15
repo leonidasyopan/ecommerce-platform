@@ -1,0 +1,71 @@
+
+/* Reset box sizing */
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content-width {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+main {
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 10px 0;
+}
+
+p {
+    margin: 5px 0;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    border: 1px solid rgb(165, 165, 165);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 10px 0 0;
+
+}
+
+input[type="text"] {
+    width: 70%;
+}
+
+input[type="submit"] {
+    width: 25%;
+    background-color: rgb(119, 8, 199);
+    color: #fff;
+}
+
+#itemDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.item-box {
+    margin-top: 30px;
+    max-width: 30%;
+}
+¨
+.item-box figure {
+    height: 300px;
+}
+
+.item-box figure img {
+    height: 300px;
+}
+
+.item-data {
+
+}

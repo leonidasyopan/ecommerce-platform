@@ -44,10 +44,10 @@ function buildHTMLDisplay() {
     /* Create a div to hold all the info of the Selected team */
     var output = '';    
     for (var i=0; i < dataFromDB.length; i++){
-        output += '<div id="item-box">';
+        output += '<div class="item-box">';
         output += "<h2>" + dataFromDB[i].product_name + "</h2>";    
         output += '<figure class="image-item"><img src="' + dataFromDB[i].product_image + '" alt="' + dataFromDB[i].product_name + ' Thumb"></figure>';
-        output += '<div id="item-data">';
+        output += '<div class="item-data">';
         output += "<p><strong>Price:</strong> " + dataFromDB[i].product_price + "</p>";
         output += "<p><strong>Description:</strong> " + dataFromDB[i].product_description + "</p>";
         output += "<p><strong>Items in Stock:</strong> " + dataFromDB[i].product_stock + "</p>";                     
