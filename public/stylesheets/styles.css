@@ -16,6 +16,25 @@ main {
     padding: 20px 0;
 }
 
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+}
+
+nav button {
+    flex: 1;     
+    padding: 10px;
+    background-color:rgb(119, 8, 199);
+    color: #fff;
+}
+
+nav button:hover {
+    cursor: pointer;
+    background-color: rgb(136, 20, 219);
+}
+
 h1 {
     margin: 10px 0;
 }
@@ -24,16 +43,15 @@ p {
     margin: 5px 0;
 }
 
-form {
+header section {
     display: flex;
-    justify-content: space-between;
 }
 
 input {
     border: 1px solid rgb(165, 165, 165);
     padding: 10px;
     border-radius: 5px;
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 5px 0;
 
 }
 
@@ -42,9 +60,15 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-    width: 25%;
+    width: 30%;
     background-color: rgb(119, 8, 199);
     color: #fff;
+    transition: all 100ms ease-in-out;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(136, 20, 219);
 }
 
 #itemDetails {

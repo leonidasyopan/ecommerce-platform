@@ -19,6 +19,26 @@ function getItems(req, res) {
     });
 }
 
+function searchItems(req, res) {
+    console.log("Searching items details.");
+
+    var item = req.query.item;
+    console.log("Retrieving items with category: ", item);
+
+    getItemModel.searchItemsByName(item, function(error, result) {
+
+        if(error || result == null) {
+            res.status(500).json({success:false, data: error})
+        } else {
+            // res.json(result[0]);
+            res.json(result);
+        }
+
+        // console.log("Back from the getItemsFromCategory function with result: ", result)        
+    });
+}
+
 module.exports = {
-    getItems: getItems
+    getItems: getItems,
+    searchItems: searchItems
 };
