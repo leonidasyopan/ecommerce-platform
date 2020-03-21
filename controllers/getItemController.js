@@ -23,7 +23,7 @@ function searchItems(req, res) {
     console.log("Searching items details.");
 
     var item = req.query.item;
-    console.log("Retrieving items with category: ", item);
+    console.log("Retrieving item called: ", item);
 
     getItemModel.searchItemsByName(item, function(error, result) {
 

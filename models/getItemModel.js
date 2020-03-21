@@ -31,12 +31,12 @@ function getItemsFromCategory(id, callback) {
 }
 
 function searchItemsByName(item, callback) {
-    console.log("getItemsFromCategory called with id: ", item);
+    console.log("searchItemsByName function called with item: ", item);
 
-    var sql = "SELECT * FROM products p INNER JOIN product_category pc ON p.product_category_id = pc.product_category_id WHERE p.product_name LIKE '%$1%'";
-    var param = [item];
+    var sql = "SELECT * FROM products p INNER JOIN product_category pc ON p.product_category_id = pc.product_category_id WHERE UPPER(p.product_name) LIKE UPPER('%" + item + "%')";
+    // var param = [item];
 
-    pool.query(sql, param, function(err, db_results) {
+    pool.query(sql, function(err, db_results) {
         if(err) {
             console.log("An error with the Database occurred.");
             console.log(err);
