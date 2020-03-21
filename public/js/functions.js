@@ -20,7 +20,7 @@ function searchItemByName() {
                         output += "<h2>" + dataFromDB.list[i].product_name + "</h2>";    
                         output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
                         output += '<div class="item-data">';
-                        output += "<p><strong>Price:</strong> " + dataFromDB.list[i].product_price + "</p>";
+                        output += "<p><strong>Price:</strong> $" + dataFromDB.list[i].product_price + "</p>";
                         output += "<p><strong>Description:</strong> " + dataFromDB.list[i].product_description + "</p>";
                         output += "<p><strong>Items in Stock:</strong> " + dataFromDB.list[i].product_stock + "</p>";                     
                         output += "</div>";
@@ -54,7 +54,7 @@ function getItemOfMenus(id) {
                     output += "<h2>" + dataFromDB.list[i].product_name + "</h2>";    
                     output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
                     output += '<div class="item-data">';
-                    output += "<p><strong>Price:</strong> " + dataFromDB.list[i].product_price + "</p>";
+                    output += "<p><strong>Price:</strong> $" + dataFromDB.list[i].product_price + "</p>";
                     output += "<p><strong>Description:</strong> " + dataFromDB.list[i].product_description + "</p>";
                     output += "<p><strong>Items in Stock:</strong> " + dataFromDB.list[i].product_stock + "</p>";                     
                     output += "</div>";
@@ -72,15 +72,6 @@ function getItemOfMenus(id) {
 }
 
 let getItemButton = document.querySelector("#getItemButton");
-/*
-let getBooksButton = document.querySelector("#getBooks");
-let getSmartphonesButton = document.querySelector("#getSmartphones");
-let getDvdsButton = document.querySelector("#getDvds"); */
 
-
-// getItemButton.addEventListener("click", getItems);
 getItemButton.addEventListener("click", searchItemByName);
 
-/* getBooksButton.addEventListener("click", getMenus("book"));
-getSmartphonesButton.addEventListener("click", getMenus("smartphone"));
-getDvdsButton.addEventListener("click", getMenus("dvd")); */
