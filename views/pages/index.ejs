@@ -10,21 +10,8 @@
 <body>
     <header class="content-width">
         
-        <img src="img/logo-ecommerce.png" alt="eCommerce Logo">
-                
-		<section>
-			<label for="item"></label>
-			<input type="text" name="item" id="item" placeholder="Search item by name...">
-
-			<input type="submit" value="Search Product" id="getItemButton">
-		</section>
-		<nav>
-			<button id="getBooks" onclick="getItemOfMenus('book')">Books</button>
-			<button id="getSmartphones" onclick="getItemOfMenus('smartphone')">Smartphones</button>
-            <button id="getDvds" onclick="getItemOfMenus('dvd')">DVDs</button>
-            <button id="getBoardgames" onclick="getItemOfMenus('boardgame')">Boardgames</button>
-			
-		</nav>
+        <%- include ../partials/header.ejs %>
+        
     </header>
     <main>
         <div class="content-width">
