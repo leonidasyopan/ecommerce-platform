@@ -23,10 +23,28 @@ main {
 }
 
 header img {
-    display: block;
-    margin: 10px auto;
-    width: 200px;
+    margin-top: 10px;
+    width: 80px;
     height: auto;
+}
+
+header div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header div a:nth-of-type(2) {
+    padding: 10px 20px;
+    background-color:#09DBD8;
+    color: rgb(56, 56, 56);
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+header div a:nth-of-type(2):hover {
+    cursor: pointer;
+    background-color: rgb(84, 235, 232);
 }
 
 nav {
@@ -60,7 +78,7 @@ header section {
     display: flex;
 }
 
-input {
+input, select {
     border: 1px solid rgb(165, 165, 165);
     padding: 10px;
     border-radius: 5px;
@@ -68,7 +86,7 @@ input {
 
 }
 
-input[type="text"] {
+input[type="text"], select {
     width: 70%;
 }
 
@@ -102,8 +120,4 @@ input[type="submit"]:hover {
 
 .item-box figure img {
     height: 300px;
-}
-
-.item-data {
-
 }

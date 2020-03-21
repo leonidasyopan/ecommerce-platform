@@ -73,5 +73,5 @@ function getItemOfMenus(id) {
 
 let getItemButton = document.querySelector("#getItemButton");
 
-getItemButton.addEventListener("click", searchItemByName);
+// getItemButton.addEventListener("click", searchItemByName);
 
