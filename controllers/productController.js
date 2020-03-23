@@ -28,7 +28,10 @@ function addProduct(req, res) {
 
             // document.getElementById("product-added-success").innerHTML = output;
 
-            res.json(result);
+            // res.json(result);
+
+            res.send('<h2> The ' + product_name + ' was added to the database.</h2>')
+    
         }
 
     });
