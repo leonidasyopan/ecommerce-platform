@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Account | eCommerce</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+</head>
+<body>
+    <header class="content-width">
+        
+        <%- include ../partials/header.ejs %>
+        
+    </header>
+    <main>
+        <div class="content-width">
+
+            <h1>Create User Account</h1>
+
+            <form action="/register" method="post">
+                <input type="text" placeholder="Username" name="username"><br>
+                <input type="password" placeholder="Password" name="password"><br>
+                <input type="submit">
+            
+            </form>
+
+            <div id="register-created-success"></div>
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="js/functions.js"></script>
+</body>    
+</html>
+
+
+
+
+<form action="/register" method="post">
+    <input type="text" placeholder="Username" name="username"><br>
+    <input type="password" placeholder="Password" name="password"><br>
+    <input type="submit">
+
+</form>

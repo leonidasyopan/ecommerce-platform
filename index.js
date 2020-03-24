@@ -7,6 +7,7 @@ var app = express();
 
 const getItemController = require("./controllers/getItemController.js")
 const productController = require("./controllers/productController.js")
+const userController = require("./controllers/userController.js")
 
 app.set("port", PORT);
 
@@ -24,6 +25,8 @@ app.get('/', (request, response) => {
 app.get('/manage-products', (request, response) => {
     response.render("pages/manage-products");    
 })
+
+app.post("/register", userController.handleRegister);
 
 app.get("/getItems", getItemController.getItems);
 app.get("/searchItems", getItemController.searchItems);
