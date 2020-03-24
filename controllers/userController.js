@@ -7,7 +7,7 @@ function handleRegister(request, response) {
     console.log(`Registering new user: ${username}:${password}`);
 
     createUser(username, password, function(error, data) {
-        response.redirect("home.html");
+        response.redirect("account.html");
     });
 }
 
