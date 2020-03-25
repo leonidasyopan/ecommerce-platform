@@ -26,6 +26,10 @@ app.get('/manage-products', (request, response) => {
     response.render("pages/manage-products");    
 })
 
+app.get('/register-user', (request, response) => {
+    response.render("pages/register-user");    
+})
+
 app.post("/register", userController.handleRegister);
 
 app.get("/getItems", getItemController.getItems);

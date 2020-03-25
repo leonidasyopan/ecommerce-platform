@@ -10,12 +10,12 @@ console.log(`DB connection: ${dbConnectionString}`);
 const myPool = Pool({connectionString: dbConnectionString});
 */
 
-function createUser(username, password, callback) {
+function createUser(username, password, email, callback) {
 
-    const sql = "INSERT INTO users (username, password) VALUES($1, $2) RETURNING  id";
-    const params = [username, password];
+    const sql = "INSERT INTO user_access (username, password, email, user_create_date) VALUES($1, $2, $3, current_timestamp) RETURNING  user_id";
+    const params = [username, password, email];
 
-    myPool.query(sql, params, function(error, result) {
+    pool.query(sql, params, function(error, result) {
         if (error) {
             console.log("An error occurred in the DB");
             console.log(error);

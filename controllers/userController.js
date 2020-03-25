@@ -1,13 +1,20 @@
 const productModel = require("../models/userModel.js");
 
 function handleRegister(request, response) {
+    const email = request.body.email;
     const username = request.body.username;
-    const password = request.body.password;
+    const password = request.body.password;    
 
-    console.log(`Registering new user: ${username}:${password}`);
+    console.log(`Registering new user: ${username}:${password}:${email}`);
 
-    createUser(username, password, function(error, data) {
-        response.redirect("account.html");
+    productModel.createUser(username, password, email, function(error, data) {
+
+        if(error) {
+            console.log(error);
+        } else {            
+            // response.json(data);
+            response.redirect("account.html");
+        }
     });
 }
 
