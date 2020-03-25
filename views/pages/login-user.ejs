@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login User | eCommerce</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/functions.js"></script>
+</head>
+<body>
+    <header class="content-width">
+        
+        <%- include ../partials/header.ejs %>
+        
+    </header>
+    <main>
+        <div class="content-width">
+
+            <h1>Login User</h1>
+
+            <input type="text" id="username" placeholder="username"><br>
+            <input type="password" id="password" placeholder="password"><br>
+            <button onclick="login();">Log in</button>
+            <button onclick="logout();">Log out</button><br>
+            <br>
+            <button onclick="getServerTime()">Get server time</button>
+
+            <div id="status"></div>
+
+        </div>
+    </main>
+    <footer>
+
+    </footer>    
+</body>    
+</html>
