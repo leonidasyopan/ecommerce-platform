@@ -20,14 +20,12 @@
         <div class="content-width">
 
             <h1>Login User</h1>
-
-            <input type="text" id="username" placeholder="username"><br>
-            <input type="password" id="password" placeholder="password"><br>
-            <button onclick="login();">Log in</button>
-            <button onclick="logout();">Log out</button><br>
-            <br>
-            <button onclick="getServerTime()">Get server time</button>
-
+            <form action="/login" method="post">                
+                <input type="text" placeholder="Username" name="username" id="username"><br>
+                <input type="password" placeholder="Password" name="password" id="password"><br>
+                <input type="submit">
+            
+            </form>
             <div id="status"></div>
 
         </div>

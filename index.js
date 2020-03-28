@@ -34,14 +34,8 @@ app.use(session({
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
-app.use(userController.logRequest);
-
 // Setup our routes
 app.post('/login', userController.handleLogin);
-app.post('/logout', userController.handleLogout);
-
-// This method has a middleware function "verifyLogin" that will be called first
-app.get('/getServerTime', userController.verifyLogin, userController.getServerTime);
 
 app.get('/', (request, response) => {
     // response.render("pages/getItems");    

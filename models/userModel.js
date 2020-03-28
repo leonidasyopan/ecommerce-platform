@@ -4,11 +4,7 @@ const connectionString = process.env.DATABASE_URL;
 
 const pool = new Pool({connectionString: connectionString});
 
-/*
-const dbConnectionString = process.env.DATABASE_URL;
-console.log(`DB connection: ${dbConnectionString}`);
-const myPool = Pool({connectionString: dbConnectionString});
-*/
+const bcrypt = require('bcrypt');
 
 function createUser(username, password, email, callback) {
 
@@ -30,6 +26,32 @@ function createUser(username, password, email, callback) {
     });
 }
 
+function loginUser(username, password, callback) {
+
+    const sql = `SELECT * from user_access WHERE username = '${username}'`;
+
+	pool.query(sql, function (err, res){
+		if(err) {
+            console.log(err);            
+        } else {
+            
+            bcrypt.compare(password, res.rows[0].password, function(err, matchFound) {
+                if(matchFound) {
+                    console.log('compare - if');
+                    callback(null, res.rows);
+                }
+                else {
+                    console.log('compare - else');
+                    callback(err, null);
+                }
+            });
+
+        }        
+    });
+}
+
+
 module.exports = {
-    createUser: createUser
+    createUser: createUser,
+    loginUser: loginUser
 };
