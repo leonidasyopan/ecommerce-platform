@@ -1,35 +1,68 @@
 const productModel = require("../models/userModel.js");
 const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 function handleRegister(request, response) {
     const email = request.body.email;
     const username = request.body.username;
-    const password = request.body.password;    
+	const password = request.body.password;
 
-    console.log(`Registering new user: ${username}:${password}:${email}`);
-
-    productModel.createUser(username, password, email, function(error, data) {
-
-        if(error) {
-            console.log(error);
-        } else {            
-            // response.json(data);
-            response.redirect("account.html");
-        }
-    });
+	bcrypt.hash(password, saltRounds, function(err, hash){
+		productModel.createUser(username, hash, email, function(error, data) {
+			if(error) {
+				console.log(error);
+			} else {            
+				// response.json(data);
+				console.log(`An account has been successfully created for the username: ${username}`);
+				response.redirect("/login-user");
+			}
+		});
+	});
 }
 
-
 function handleLogin(request, response) {
-	var result = {success: false};
+	var username = req.body.username;
+	var password = req.body.password;
 
-	// We should do better error checking here to make sure the parameters are present
-	if (request.body.username == "admin" && request.body.password == "password") {
-		request.session.user = request.body.username;
-		result = {success: true};
-	}
+	bcrypt.hash(password, 10).then(function(hash) {
+		console.log(hash)
+	});
 
-	response.json(result);
+	console.log(username);
+	console.log(password);        
+
+	let sql = "SELECT * from user_access WHERE username = '" + username + "'";
+
+	sqlQuery(sql, function (err, response){
+
+		if(err) {
+			console.error(err);
+		}
+		console.log()
+		console.log(response[0]);
+		if(response.length === 1) {
+
+			bcrypt.compare(password, response[0].password, function(err, result) {
+				if(result) {
+					console.log('compare - if')
+					req.session.username = username;
+					res.json({success: true});
+					res.end();
+				}
+				else {
+					console.log('compare - else')
+					res.json ({success: false});
+					res.end();
+				}
+			});
+			
+		}
+		else {
+			console.log('else')
+			res.json ({success: false});
+			res.end();
+		}
+	})
 }
 
 // If a user is currently stored on the session, removes it
