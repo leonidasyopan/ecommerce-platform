@@ -1,13 +1,18 @@
-<section>
-  <label for="item"></label>
-  <input type="text" name="item" id="item" placeholder="Search item by name...">
+<section class="logo-search">
+	<div class="content-width">
+		<a href="/"><img src="img/logo-ecommerce-branco.png" alt="eCommerce Logo" class="logo-image"></a>
 
-  <input type="submit" value="Search Product" id="getItemButton" onclick="searchItemByName()">
+		<label for="item"></label>
+		<input type="text" name="item" id="item" placeholder="Search item by name...">
+
+		<input type="submit" value="Search Product" id="getItemButton" onclick="searchItemByName()">
+	</div>    
 </section>
-<nav>
-  <button id="getBooks" onclick="getItemOfMenus('book')">Books</button>
-  <button id="getSmartphones" onclick="getItemOfMenus('smartphone')">Smartphones</button>
-  <button id="getDvds" onclick="getItemOfMenus('dvd')">DVDs</button>
-  <button id="getBoardgames" onclick="getItemOfMenus('boardgame')">Boardgames</button>
-  
+<nav class="categories">
+	<div class="content-width">
+		<button id="getBooks" onclick="getItemOfMenus('book')">Books</button>
+		<button id="getSmartphones" onclick="getItemOfMenus('smartphone')">Smartphones</button>
+		<button id="getDvds" onclick="getItemOfMenus('dvd')">DVDs</button>
+		<button id="getBoardgames" onclick="getItemOfMenus('boardgame')">Boardgames</button> 
+	</div>
 </nav>
