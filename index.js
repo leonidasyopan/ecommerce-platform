@@ -17,11 +17,6 @@ const userController = require("./controllers/userController.js")
 app.set("port", PORT);
 
 app.use(express.static(path.join(__dirname, 'public')))
-
-// Body parser middleware to use post values
-app.use(express.json()); // support JSON encoded bodies
-app.use(express.urlencoded({extended: true})); // support URL encoded bodies
-
 // USE SESSION
 app.use(session({
     name: 'delicious-cookie-id',
@@ -30,6 +25,10 @@ app.use(session({
     resave: true,
     store: new FileStore()
 }))
+
+// Body parser middleware to use post values
+app.use(express.json()); // support JSON encoded bodies
+app.use(express.urlencoded({extended: true})); // support URL encoded bodies
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')

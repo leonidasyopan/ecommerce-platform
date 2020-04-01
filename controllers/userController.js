@@ -39,7 +39,6 @@ function handleLogin(request, response) {
 	});
 }
 
-
 module.exports = {
     handleRegister: handleRegister,
     handleLogin: handleLogin
