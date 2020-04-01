@@ -1,5 +1,4 @@
 const productModel = require("../models/userModel.js");
-const session = require('express-session');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -38,6 +37,7 @@ function handleLogin(request, response) {
 		}
 	});
 }
+
 
 module.exports = {
     handleRegister: handleRegister,

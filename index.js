@@ -20,9 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 // USE SESSION
 app.use(session({
     name: 'delicious-cookie-id',
-    secret: 'some important secret',
-    saveUninitialized: true,
-    resave: true,
+    secret: 'ladfshgoandsuahqwlfoasdhohoasfd',
+    saveUninitialized: false,
+    resave: false,
     store: new FileStore()
 }))
 
@@ -41,7 +41,12 @@ app.get('/', (request, response) => {
     response.render("pages/index");    
 })
 app.get('/manage-products', (request, response) => {
-    response.render("pages/manage-products");    
+    sess = request.session;
+    if(sess.username) {
+        return response.render("pages/manage-products");  
+    } else {
+        return response.render("pages/login-user");  
+    }   
 })
 
 app.get('/register-user', (request, response) => {
