@@ -33,6 +33,7 @@ function handleLogin(request, response) {
 		} else {
 			console.log('Back to controller with Success')
 			request.session.username = username;
+			// response.locals.user = request.session.username;
 			response.redirect("/");
 		}
 	});

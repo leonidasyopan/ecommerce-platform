@@ -29,12 +29,28 @@ app.use(session({
 // Body parser middleware to use post values
 app.use(express.json()); // support JSON encoded bodies
 app.use(express.urlencoded({extended: true})); // support URL encoded bodies
+app.use(function (req, res, next) {
+    res.locals.user = req.session.username;
+    next();
+})
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 // Setup our routes
 app.post('/login', userController.handleLogin);
+
+
+app.get('/logout', (req, res) => {
+
+    if(req.session.username) {
+        req.session.destroy();
+        return res.render("pages/index.ejs"); 
+    }
+    else {
+        return res.render("pages/index.ejs"); 
+    }
+})
 
 app.get('/', (request, response) => {
     // response.render("pages/getItems");    
@@ -46,7 +62,7 @@ app.get('/manage-products', (request, response) => {
         return response.render("pages/manage-products");  
     } else {
         return response.render("pages/login-user");  
-    }   
+    }
 })
 
 app.get('/register-user', (request, response) => {
