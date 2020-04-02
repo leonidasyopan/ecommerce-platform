@@ -33,6 +33,7 @@ app.use(express.json()); // support JSON encoded bodies
 app.use(express.urlencoded({extended: true})); // support URL encoded bodies
 app.use(function (req, res, next) {
     res.locals.user = req.session.username;
+    // res.locals.cart = req.session.cart;
     next();
 })
 app.use(helmet());

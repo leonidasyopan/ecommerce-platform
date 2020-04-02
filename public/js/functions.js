@@ -95,7 +95,7 @@ function buildItemList(dataFromDB) {
         output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
         output += '<div class="item-price-cart">';
         output += "<p><strong>Price:</strong> $ " + price + "</p>";
-        output += `<form action="/addToCart" method="POST">`;
+        output += `<form action="/addToCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
         output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
         output += `<button type="submit" class="add-to-cart-button"><i class="fas fa-cart-plus fa-2x"></i></button>`;
         output += `</form>`;

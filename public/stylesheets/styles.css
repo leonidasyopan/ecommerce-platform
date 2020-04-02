@@ -168,7 +168,7 @@ input[type="submit"]:hover {
     margin-top: 30px;
     max-width: 22%;
     flex-grow: 1;
-    margin: 15px 15px;
+    margin: 15px 20px;
     
 }
 
@@ -227,7 +227,12 @@ input[type="submit"]:hover {
 }
 
 .item-data {
-    padding: 20px;
+    padding: 10px 20px;
+}
+
+.item-data p:first-of-type {
+    height: 40px;
+    overflow: hidden;
 }
 
 /*  
