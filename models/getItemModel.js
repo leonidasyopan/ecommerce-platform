@@ -30,6 +30,32 @@ function getItemsFromCategory(id, callback) {
 
 }
 
+function getAllItemsFromDb(callback) {
+    // console.log("getItemsFromCategory called with id: ", id);
+
+    var sql = "SELECT * FROM products p INNER JOIN product_category pc ON p.product_category_id = pc.product_category_id ORDER BY p.product_name ASC";
+    // var param = [id];
+
+    pool.query(sql, function(err, db_results) {
+        if(err) {
+            console.log("An error with the Database occurred.");
+            console.log(err);
+            callback(err, null);
+        }   else {
+        // console.log("Found DB result: " + JSON.stringify(result.rows));
+
+        var results = {
+            success:true,
+            list:db_results.rows
+        };
+
+        callback(null, results);
+
+        }
+    });
+
+}
+
 function searchItemsByName(item, callback) {
     console.log("searchItemsByName function called with item: ", item);
 
@@ -58,5 +84,6 @@ function searchItemsByName(item, callback) {
 
 module.exports = {
     getItemsFromCategory: getItemsFromCategory,
+    getAllItemsFromDb: getAllItemsFromDb,
     searchItemsByName: searchItemsByName
 };

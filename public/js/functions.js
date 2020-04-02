@@ -71,4 +71,58 @@ function getItemOfMenus(id) {
     ajax.send();
 }
 
+
+function loadAllItems() {
+    let ajax = new XMLHttpRequest();
+    ajax.open('GET', '/getAllItems');
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status == 200) {
+            try {
+                var dataFromDB = JSON.parse(ajax.responseText);                
+                
+                // Create a div to hold all the info of the Selected team
+                var output = '';    
+                for (var i=0; i < dataFromDB.list.length; i++){
+                    var category_name_db = dataFromDB.list[i].category_name;
+                    console.log(category_name_db)
+                    var category_name = "DVD";
+
+                    switch(category_name_db) {
+                        case 'dvd':
+                            category_name = "DVD";
+                            break;
+                        case 'book':
+                            category_name = "Book";
+                            break;
+                        case 'boardgame':
+                            category_name = "Boardgame";
+                            break;
+                        default:
+                            category_name = "Smartphone";
+                    }
+
+
+                    output += '<div class="item-box">';
+                    output += "<h2>" + dataFromDB.list[i].product_name + "</h2>";    
+                    output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
+                    output += '<div class="item-data">';
+                    output += "<p><strong>Price:</strong> $" + dataFromDB.list[i].product_price + "</p>";
+                    output += "<p><strong>Description:</strong> " + dataFromDB.list[i].product_description + "</p>";
+                    output += "<p><strong>Category:</strong> " + category_name + "</p>";
+                    output += "<p><strong>Items in Stock:</strong> " + dataFromDB.list[i].product_stock + "</p>";                     
+                    output += "</div>";
+                    output += "</div>";
+                }
+
+                document.getElementById("itemDetails").innerHTML = output;
+            }
+            catch(err) {
+                console.log(err.message);
+            }
+        }
+    }
+    ajax.send();
+}
+
+
 let getItemButton = document.querySelector("#getItemButton");

@@ -76,6 +76,7 @@ app.get('/login-user', (request, response) => {
 app.post("/register", userController.handleRegister);
 
 app.get("/getItems", getItemController.getItems);
+app.get("/getAllItems", getItemController.getAllItems);
 app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
 
