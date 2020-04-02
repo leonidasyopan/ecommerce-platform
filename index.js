@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+const helmet = require('helmet');
 
 // IMPORTING SESSION STUFF
 const session = require('express-session');
@@ -13,6 +14,7 @@ var app = express();
 const getItemController = require("./controllers/getItemController.js")
 const productController = require("./controllers/productController.js")
 const userController = require("./controllers/userController.js")
+const shopController = require("./controllers/shopController.js")
 
 app.set("port", PORT);
 
@@ -33,7 +35,7 @@ app.use(function (req, res, next) {
     res.locals.user = req.session.username;
     next();
 })
-
+app.use(helmet());
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
@@ -79,6 +81,8 @@ app.get("/getItems", getItemController.getItems);
 app.get("/getAllItems", getItemController.getAllItems);
 app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
+
+app.post("/addToCart", shopController.addToCart)
 
 app.listen(app.get("port"), function() {
     console.log("Now listening for connection on port: ", app.get("port"));
