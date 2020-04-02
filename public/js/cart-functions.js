@@ -20,45 +20,27 @@ function loadCartItems() {
 }
 
 function buildCartList(dataFromDB) {
-  var output = '';    
-  for (var i=0; i < dataFromDB.list.length; i++){
-      var category_name_db = dataFromDB.list[i].category_name;
-      console.log(category_name_db)
-      var category_name = "DVD";
-
-      switch(category_name_db) {
-          case 'dvd':
-              category_name = "DVD";
-              break;
-          case 'book':
-              category_name = "Book";
-              break;
-          case 'boardgame':
-              category_name = "Boardgame";
-              break;
-          default:
-              category_name = "Smartphone";
-      }   
+  var output = '<table class="shopping-cart-table"><thead><tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th><th>Remove Item</th></tr></thead><tbody>';            
+  
+  for (var i=0; i < dataFromDB.list.length; i++){        
       
-      var price = Number(dataFromDB.list[i].product_price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+      var price = Number(dataFromDB.list[i].product_price);
 
-      output += '<div class="item-box">';
-      output += "<h2>" + dataFromDB.list[i].product_name + "</h2>";    
-      output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
-      output += '<div class="item-price-cart">';
-      output += "<p><strong>Price:</strong> $ " + price + "</p>";
-      output += `<form action="/addToCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
+      output += "<tr>"
+      output += `<td>${dataFromDB.list[i].product_name}</td>`;
+      output += `<td headers="Item${i}">1</td>`;
+      output += `<td>${price}</td>`;
+      output += `<td>${price * 1}</td>`;
+      output += "<td>";
+      output += `<form action="/removeFromCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
       output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
-      output += `<button type="submit" class="add-to-cart-button"><i class="fas fa-cart-plus fa-2x"></i></button>`;
+      output += `<button type="submit" class="remove-from-cart-button"><i class="fas fa-trash-alt"></i></button>`;
       output += `</form>`;
-      output += "</div>";
-      output += '<div class="item-data">';        
-      output += "<p><strong>Description:</strong> " + dataFromDB.list[i].product_description + "</p>";
-      output += "<p><strong>Category:</strong> " + category_name + "</p>";
-      output += "<p><strong>Items in Stock:</strong> " + dataFromDB.list[i].product_stock + "</p>";
-      output += "</div>";
-      output += "</div>";
+      output += "</td>";
+      output += "</tr>"      
   }
+  
+  output += "</tbody></table>"
 
   return output;
 

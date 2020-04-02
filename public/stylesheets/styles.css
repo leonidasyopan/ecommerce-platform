@@ -235,6 +235,46 @@ input[type="submit"]:hover {
     overflow: hidden;
 }
 
+/* SHOPPING CART STYLE */
+
+.shopping-cart-table {
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1390px;
+    border-collapse:separate;
+}
+
+.shopping-cart-table thead {
+    background: #10bbd5;
+    color: #ffffff;
+}
+
+.shopping-cart-table tr td {
+    text-align: center;
+}
+
+.shopping-cart-table tr td:first-of-type {
+    width: 80%;
+    text-align: left;
+}
+
+
+table th, table td { 
+    padding: .75em 1em;
+}
+
+.shopping-cart-table tbody tr:nth-child(odd){ 
+    
+}
+
+.shopping-cart-table tbody tr:nth-child(even){
+    background: rgb(238, 238, 238);
+}
+
+.remove-from-cart-button {
+    cursor: pointer;
+}
+
 /*  
 // MEDIUM SCREENS - MEDIA QUERY BREAK
 */
