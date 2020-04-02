@@ -24,13 +24,13 @@ function buildCartList(dataFromDB) {
   
   for (var i=0; i < dataFromDB.list.length; i++){        
       
-      var price = Number(dataFromDB.list[i].product_price);
+      var price = Number(dataFromDB.list[i].product_price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 
       output += "<tr>"
       output += `<td>${dataFromDB.list[i].product_name}</td>`;
-      output += `<td headers="Item${i}">1</td>`;
-      output += `<td>${price}</td>`;
-      output += `<td>${price * 1}</td>`;
+      output += `<td><input type="number" id="quantity_product_${dataFromDB.list[i].product_id}" name="quantity" class="quantity" value="1" min="1"></td>`;
+      output += `<td>$ ${price}</td>`;
+      output += `<td>$ ${Number(price * 1).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>`;
       output += "<td>";
       output += `<form action="/removeFromCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
       output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;

@@ -254,7 +254,7 @@ input[type="submit"]:hover {
 }
 
 .shopping-cart-table tr td:first-of-type {
-    width: 80%;
+    width: 70%;
     text-align: left;
 }
 
@@ -269,6 +269,10 @@ table th, table td {
 
 .shopping-cart-table tbody tr:nth-child(even){
     background: rgb(238, 238, 238);
+}
+
+.shopping-cart-table input.quantity {
+    width: 60px;
 }
 
 .remove-from-cart-button {
