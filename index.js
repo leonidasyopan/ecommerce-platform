@@ -33,7 +33,7 @@ app.use(express.json()); // support JSON encoded bodies
 app.use(express.urlencoded({extended: true})); // support URL encoded bodies
 app.use(function (req, res, next) {
     res.locals.user = req.session.username;
-    // res.locals.cart = req.session.cart;
+    res.locals.cart = req.session.cart;
     next();
 })
 app.use(helmet());
@@ -72,6 +72,10 @@ app.get('/register-user', (request, response) => {
     response.render("pages/register-user");    
 })
 
+app.get("/shopping-cart", (request, response) => {
+    response.render("pages/shopping-cart");    
+})
+
 app.get('/login-user', (request, response) => {
     response.render("pages/login-user");    
 })
@@ -83,7 +87,8 @@ app.get("/getAllItems", getItemController.getAllItems);
 app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
 
-app.post("/addToCart", shopController.addToCart)
+app.post("/addToCart", shopController.addToCart);
+
 
 app.listen(app.get("port"), function() {
     console.log("Now listening for connection on port: ", app.get("port"));

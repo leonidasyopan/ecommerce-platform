@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User Account | eCommerce</title>
+    
+    <script src="https://kit.fontawesome.com/d92ab94eeb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+</head>
+<body onload="loadAllItems()">
+    <header>
+        
+      <%- include ../partials/header.ejs %>
+        
+    </header>
+    <main>
+        
+      <% if (cart) { %>
+        <p>There is a cart!</p>
+      <% console.log(cart); %>  
+      <% } else { %>
+        <p>There is NOT a cart!</p>
+      <% } %>
+
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="js/cart-functions.js"></script>
+</body>    
+</html>
