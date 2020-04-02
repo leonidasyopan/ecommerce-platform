@@ -17,7 +17,7 @@ body {
 }
 
 .warning-message {
-    color: rgb(248, 96, 96);
+    color: #f86060;
     font-size: 1.2em;
     font-weight: bold;
 }
@@ -43,13 +43,13 @@ body {
 }
 
 .top-nav a {
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     text-decoration: none;
     transition: color 500ms;
 }
 
 .top-nav a:hover {
-    color: rgb(221, 221, 221);    
+    color: #dddddd;    
 }
 
 .top-nav i {
@@ -140,7 +140,7 @@ header section {
 }
 
 input, select {
-    border: 1px solid rgb(165, 165, 165);
+    border: 1px solid #a5a5a5;
     padding: 10px;
     border-radius: 5px;
     margin: 10px 10px 5px 0;
@@ -187,6 +187,47 @@ input[type="submit"]:hover {
     margin: 0 auto;
     height: 300px;
     text-align: center;
+}
+
+.item-price-cart {
+    background: #10bbd5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+.item-price-cart p {
+    background-color: #ffffff;
+    padding: 8px 10px;
+    width: 70%;
+    color: #10bbd5;
+    font-weight: bold;
+    text-align: center;
+}
+
+.item-price-cart form {
+    width: 30%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.3em;
+}
+
+.item-price-cart i {
+    background: #10bbd5;
+    color: #ffffff;  
+    transition: color 300ms;
+}
+
+.item-price-cart i:hover {
+    color: #403042;
+    cursor: pointer;
+}
+
+.item-data {
+    padding: 20px;
 }
 
 /*  

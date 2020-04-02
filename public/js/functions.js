@@ -86,20 +86,24 @@ function buildItemList(dataFromDB) {
                 break;
             default:
                 category_name = "Smartphone";
-        }        
+        }   
+        
+        var price = Number(dataFromDB.list[i].product_price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
 
         output += '<div class="item-box">';
         output += "<h2>" + dataFromDB.list[i].product_name + "</h2>";    
         output += '<figure class="image-item"><img src="' + dataFromDB.list[i].product_image + '" alt="' + dataFromDB.list[i].product_name + ' Thumb"></figure>';
-        output += '<div class="item-data">';
-        output += "<p><strong>Price:</strong> $" + dataFromDB.list[i].product_price + "</p>";
+        output += '<div class="item-price-cart">';
+        output += "<p><strong>Price:</strong> $ " + price + "</p>";
+        output += `<form action="/addToCart" method="POST">`;
+        output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
+        output += `<button type="submit" class="add-to-cart-button"><i class="fas fa-cart-plus fa-2x"></i></button>`;
+        output += `</form>`;
+        output += "</div>";
+        output += '<div class="item-data">';        
         output += "<p><strong>Description:</strong> " + dataFromDB.list[i].product_description + "</p>";
         output += "<p><strong>Category:</strong> " + category_name + "</p>";
         output += "<p><strong>Items in Stock:</strong> " + dataFromDB.list[i].product_stock + "</p>";
-        output += `<form action="/addToCart" method="POST">`;
-        output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
-        output += `<button type="submit" class="add-to-cart-button"><i class="fas fa-cart-plus"></i></button>`;
-        output += `</form>`;                     
         output += "</div>";
         output += "</div>";
     }
