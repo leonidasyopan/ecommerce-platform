@@ -11,30 +11,21 @@ function getItems(req, res) {
         if(error || result == null) {
             res.status(500).json({success:false, data: error})
         } else {
-            // res.json(result[0]);
             res.json(result);
         }
-
-        // console.log("Back from the getItemsFromCategory function with result: ", result)        
     });
 }
 
 function getAllItems(req, res) {
     console.log("Getting all items");
 
-    // var id = req.query.id;
-    // console.log("Retrieving items with category: ", id);
-
     getItemModel.getAllItemsFromDb(function(error, result) {
 
         if(error || result == null) {
             res.status(500).json({success:false, data: error})
         } else {
-            // res.json(result[0]);
             res.json(result);
-        }
-
-        // console.log("Back from the getItemsFromCategory function with result: ", result)        
+        }    
     });
 }
 
@@ -49,11 +40,8 @@ function searchItems(req, res) {
         if(error || result == null) {
             res.status(500).json({success:false, data: error})
         } else {
-            // res.json(result[0]);
             res.json(result);
-        }
-
-        // console.log("Back from the getItemsFromCategory function with result: ", result)        
+        }       
     });
 }
 

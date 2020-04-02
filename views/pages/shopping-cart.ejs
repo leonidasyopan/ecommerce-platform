@@ -10,22 +10,18 @@
     <link rel="stylesheet" href="stylesheets/styles.css">
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
 </head>
-<body onload="loadAllItems()">
+<body onload="loadCartItems()">
     <header>
         
       <%- include ../partials/header.ejs %>
         
     </header>
     <main>
-        
-      <% if (cart) { %>
-        <p>There is a cart!</p>
-      <% console.log(cart); %>  
-      <% } else { %>
-        <p>There is NOT a cart!</p>
-      <% } %>
+      <div class="content-width">
 
+        <div id="cartList"></div>
 
+      </div>
     </main>
     <footer>
 

@@ -53,7 +53,8 @@ function loadAllItems() {
     ajax.onreadystatechange = function() {
         if (ajax.readyState === 4 && ajax.status == 200) {
             try {
-                var dataFromDB = JSON.parse(ajax.responseText);    
+                var dataFromDB = JSON.parse(ajax.responseText);
+                // localStorage.setItem('itemsInStock', JSON.stringify(dataFromDB.list));    
 
                 var output = buildItemList(dataFromDB);
     

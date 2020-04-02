@@ -88,6 +88,7 @@ app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
 
 app.post("/addToCart", shopController.addToCart);
+app.get("/loadCartItems", shopController.organizerCartItems)
 
 
 app.listen(app.get("port"), function() {
