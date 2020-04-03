@@ -29,26 +29,28 @@ function handleRegister(request, response) {
 }
 
 function handleLogin(request, response) {
+	console.log(`Entered handleLogin function in Controller`);
 
 	const errors = validationResult(request)
 	if(!errors.isEmpty()) {
-		console.log(errors)
+		console.log(`Errors with INPUT inside handleLogin function in Controller: ${errors}`);
 		return response.status(422).json({errors: errors.array()})
 	}
 
 	const username = request.body.username;
-	const password = request.body.password; 
-	
-	console.log(username, password);
+	const password = request.body.password;
+	console.log(`In Controller. Got the username and password: ${username}, ${password}`);
 
 	productModel.loginUser(username, password, function(error, data) {
 		if(error) {
-			console.log('Back to controller with error');
-			
+			console.log(`Back to handleLogin function inController with error: ${error}`);
+			response.json({success: false});
+			response.end();
 		} else {
-			console.log('Back to controller with Success')
+			console.log(`Back to handleLogin function inController with NO error.`);
 			request.session.username = username;
 			request.session.cart = [];
+			console.log(`After successul login. Created Session: ${request.session.username} and cart: ${request.session.cart}`);
 			response.redirect("/");
 		}
 	});

@@ -4,6 +4,12 @@
         <a href="/"><i class="fas fa-home fa-2x"></i></a>
 
         <section id="management-buttons">
+
+            <% if (user) { %>
+                
+                <a>Welcome <%= user %></a>
+            <% } %>
+
             <a href="manage-products"><i class="fas fa-plus-square"></i> Manage Products</a>
 
             <% if (!user) { %>

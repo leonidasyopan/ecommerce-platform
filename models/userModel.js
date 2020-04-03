@@ -27,25 +27,29 @@ function createUser(username, password, email, callback) {
 }
 
 function loginUser(username, password, callback) {
+    console.log(`Entered loginUser() in Model`);
 
     const sql = `SELECT * from user_access WHERE username = '${username}'`;
 
+    console.log(`Build the SQL in Model: ${sql}`);
+
 	pool.query(sql, function (err, res){
+        console.log(`Entered pool.query in Model`);
 		if(err) {
             console.log(err);            
         } else {
-            
+            console.log(`No Error thus far in Model, entered ELSE`);
             bcrypt.compare(password, res.rows[0].password, function(err, matchFound) {
+                console.log(`Inside COMPARE function`);
                 if(matchFound) {
-                    console.log('compare - if');
+                    console.log(`This should mean that a match was found`);
                     callback(null, res.rows);
                 }
                 else {
-                    console.log('compare - else');
+                    console.log(`This should mean that a match was NOT found`);
                     callback(err, null);
                 }
             });
-
         }        
     });
 }
