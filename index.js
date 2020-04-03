@@ -6,6 +6,7 @@ const helmet = require('helmet');
 // IMPORTING SESSION STUFF
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const { check, validationResult } = require('express-validator');
 
 const PORT = process.env.PORT || 5000;
 var app = express();
@@ -41,8 +42,6 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 // Setup our routes
-app.post('/login', userController.handleLogin);
-
 
 app.get('/logout', (req, res) => {
 
@@ -80,14 +79,23 @@ app.get('/login-user', (request, response) => {
     response.render("pages/login-user");    
 })
 
-app.post("/register", userController.handleRegister);
+app.post("/register", [    
+    check('email', 'Please provide a valid email.').isEmail().normalizeEmail(),
+    check('username', 'Please define your username.').isLength({ min: 3 }).trim().escape(),
+    check('password', 'Please create your password.').isLength({ min: 5 })
+], userController.handleRegister);
+
+app.post('/login', [
+    check('username', 'Please provide your username.').isLength({ min: 3 }).trim().escape(),
+    check('password', 'Please use your password.').isLength({ min: 5 })
+], userController.handleLogin);
 
 app.get("/getItems", getItemController.getItems);
 app.get("/getAllItems", getItemController.getAllItems);
 app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
 
-app.post("/addToCart", shopController.addToCart);
+app.get("/addToCart", shopController.addToCart);
 app.post("/removeFromCart", shopController.removeFromCart);
 app.get("/loadCartItems", shopController.organizerCartItems)
 

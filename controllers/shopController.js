@@ -6,7 +6,9 @@ function addToCart(req, res) {
 
   if(req.session.cart) {
     req.session.cart.push(id);
-    res.redirect('/');
+    // res.redirect('/');
+    res.json({success: true});
+    res.end();
   } else {
     res.render("pages/login-user");  
   }
