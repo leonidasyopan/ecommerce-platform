@@ -20,17 +20,18 @@
     </header>
     <main>
         <div class="content-width">
-
-            <h1>Login User</h1>
-            <form action="/login" method="post">                
-                <input onblur="usernameBlur()" type="text" placeholder="Username" name="username" id="username">
-                <span id="error-username" class="error"></span><br>
-                <input onblur="passwordBlur()" type="password" placeholder="Password" name="password" id="password">
-                <span id="error-password" class="error"></span><br>
-                <input type="submit">            
-            </form>
-            <div id="status"></div>
-
+            <section class="fullyCenteredBox">
+                <div class="centeredForm">
+                    <h1>Login User</h1>
+                    <form action="/login" method="post">                
+                        <input onblur="usernameBlur()" type="text" placeholder="Username" name="username" id="username">
+                        <span id="error-username" class="error"></span><br>
+                        <input onblur="passwordBlur()" type="password" placeholder="Password" name="password" id="password">
+                        <span id="error-password" class="error"></span><br>
+                        <input type="submit">            
+                    </form>
+                </div>
+            </section>
         </div>
     </main>
     <footer>

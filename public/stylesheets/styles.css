@@ -10,9 +10,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Dialog box style */
-
-
 .content-width {
     width: 100%;
     max-width: 1390px;
@@ -50,6 +47,7 @@ body {
     max-width: 1190px;
     display: flex;
     justify-content: flex-end;
+    margin-right: 20px;
 }
 
 .top-nav a {
@@ -173,6 +171,45 @@ input[type="submit"]:hover {
     background-color: #29D5EF;
 }
 
+/**
+** CENTERTED BOX FOR LOGIN AND REGISTER
+**/
+
+section.fullyCenteredBox {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.centeredForm {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+div.centeredForm h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+div.centeredForm input {
+    display: block;
+    margin: 5px auto 15px auto;
+}
+
+div.centeredForm span {
+    display: block;
+    margin: -15px auto 0 auto;
+}
+
+div.centeredForm input[type="submit"] {
+    margin-top: 15px;
+    float: right;
+    margin-right: 15%;
+}
+
+/*************/
 
 .item-box {
     margin-top: 30px;
