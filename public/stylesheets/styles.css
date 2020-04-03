@@ -10,6 +10,9 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* Dialog box style */
+
+
 .content-width {
     width: 100%;
     max-width: 1390px;
@@ -245,6 +248,18 @@ input[type="submit"]:hover {
 }
 
 /* SHOPPING CART STYLE */
+
+#clearShoppingCart {
+    float: right;
+    background: none;
+    cursor: pointer;
+    color: #10bbd5;
+    margin-bottom: 20px;
+}
+
+#clearShoppingCart:hover {
+    color: #29D5EF;
+}
 
 .shopping-cart-table {
     margin-top: 50px;

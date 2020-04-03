@@ -74,6 +74,42 @@ function removeFromCartAjax(id) {
     ajax.send();
 }
 
+function clearShoppingCartAjax() {
+    
+    var confirmation = confirm("Are you sure you want to clear ALL items from cart?");
+    if (confirmation == true) {
+        let ajax = new XMLHttpRequest();
+        ajax.open('GET', '/clearShoppingCart');
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState === 4 && ajax.status == 200) {
+                try {
+                    var successMessage = JSON.parse(ajax.responseText);
+                    console.log(successMessage);
+
+                    if(successMessage.success == true) {
+                        alert("Shopping cart cleared successfully")    
+                        window.location.href = '/';
+    
+                    } else {
+                        alert('Something went wrong, please try again.')
+                        window.location.href = '/shopping-cart';
+                    }
+                    
+                }
+                catch(err) {
+                    console.log(err.message);
+                }
+            }
+        }
+        ajax.send();
+    
+    } else {
+        console.log('User chose to cancel cleaning cart.')
+    }
+
+}
+
+
 
 function buildCartList(dataFromDB) {
     var output = '<table class="shopping-cart-table"><thead><tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th><th>Remove Item</th></tr></thead><tbody>';            

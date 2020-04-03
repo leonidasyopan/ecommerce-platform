@@ -98,6 +98,7 @@ app.post("/addProduct", productController.addProduct);
 
 app.get("/addToCart", shopController.addToCart);
 app.get("/removeFromCart", shopController.removeFromCart);
+app.get("/clearShoppingCart", shopController.clearShoppingCart);
 app.get("/loadCartItems", shopController.organizerCartItems)
 
 

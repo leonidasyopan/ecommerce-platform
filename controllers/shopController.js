@@ -31,6 +31,23 @@ function removeFromCart(req, res) {
   
 }
 
+function clearShoppingCart(req, res) {
+  console.log(`Item's in cart BEFORE cleaning: ${req.session.cart}`)
+  req.session.cart = [] 
+  console.log(`Item's in cart AFTER cleaning: ${req.session.cart}`)
+    
+  if(!req.session.cart.length) {
+    console.log(`within success`)
+    res.json({success: true});
+    res.end();
+  } else {
+    console.log(`within failure`)
+    res.json({success: false});
+    res.end();
+  }
+  
+}
+
 function organizerCartItems(req, res) {
   console.log("Organizing all items for the Shopping Cart");
 
@@ -51,5 +68,6 @@ function organizerCartItems(req, res) {
 module.exports = {
   addToCart: addToCart,
   removeFromCart: removeFromCart,
+  clearShoppingCart: clearShoppingCart,
   organizerCartItems: organizerCartItems
 };
