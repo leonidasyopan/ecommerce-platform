@@ -2,7 +2,6 @@ const shopModel = require("../models/shopModel.js");
 
 function addToCart(req, res) {
   var id = Number(req.query.id);
-  console.log("Adding item to cart with id: ", id);
 
   if(req.session.cart) {
     req.session.cart.push(id);
@@ -16,7 +15,7 @@ function addToCart(req, res) {
 
 function removeFromCart(req, res) {
   var id = Number(req.query.id);
-  console.log("Adding item to cart with id: ", id);
+  console.log('removeFromCart function with id: ' + id)
 
   var index = req.session.cart.indexOf(id);
 
@@ -25,8 +24,9 @@ function removeFromCart(req, res) {
     index = req.session.cart.indexOf(id);
   }  
     
-  console.log(req.session.cart);
-  res.redirect('/shopping-cart'); 
+  res.json({success: true});
+  res.end();
+  // res.redirect('/shopping-cart'); 
   
 }
 

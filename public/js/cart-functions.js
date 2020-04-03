@@ -19,15 +19,39 @@ function loadCartItems() {
     ajax.send();
 }
 
-function addToCartAjax(id) {
-    console.log("Entered addToCartAjax function with id " + id);
+function addToCartAjax(id) {    
     let ajax = new XMLHttpRequest();
     ajax.open('GET', '/addToCart?id=' + id);
     ajax.onreadystatechange = function() {
         if (ajax.readyState === 4 && ajax.status == 200) {
             try {
                 var successMessage = JSON.parse(ajax.responseText);
+
+                alert("Item added with success")
+                
+            }
+            catch(err) {
+                console.log(err.message);
+            }
+        }
+    }
+    ajax.send();
+}
+
+function removeFromCartAjax(id) {
+    console.log("Entered removeFromCartAjax function with id " + id);
+    let ajax = new XMLHttpRequest();
+    ajax.open('GET', '/removeFromCart?id=' + id);
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status == 200) {
+            try {
+                var successMessage = JSON.parse(ajax.responseText);
                 console.log(successMessage);
+
+                alert("Item removed successfully")
+
+                location.reload();
+                return false;
                 
             }
             catch(err) {
@@ -52,10 +76,12 @@ function buildCartList(dataFromDB) {
         output += `<td>$ ${price}</td>`;
         output += `<td>$ ${Number(price * 1).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>`;
         output += "<td>";
+        /*
         output += `<form action="/removeFromCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
         output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
-        output += `<button type="submit" class="remove-from-cart-button"><i class="fas fa-trash-alt"></i></button>`;
-        output += `</form>`;
+        */
+        output += `<button class="remove-from-cart-button" onclick="removeFromCartAjax(${dataFromDB.list[i].product_id})"><i class="fas fa-trash-alt"></i></button>`;
+        // output += `</form>`;
         output += "</td>";
         output += "</tr>"      
     }

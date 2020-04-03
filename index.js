@@ -96,7 +96,7 @@ app.get("/searchItems", getItemController.searchItems);
 app.post("/addProduct", productController.addProduct);
 
 app.get("/addToCart", shopController.addToCart);
-app.post("/removeFromCart", shopController.removeFromCart);
+app.get("/removeFromCart", shopController.removeFromCart);
 app.get("/loadCartItems", shopController.organizerCartItems)
 
 
