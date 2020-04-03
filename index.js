@@ -94,7 +94,28 @@ app.post('/login', [
 app.get("/getItems", getItemController.getItems);
 app.get("/getAllItems", getItemController.getAllItems);
 app.get("/searchItems", getItemController.searchItems);
-app.post("/addProduct", productController.addProduct);
+app.post("/addProduct", [
+    check('product_name', 'Please provide a valid name.')
+    .not().isEmpty()
+    .trim()
+    .escape(),
+    check('product_price', 'Define a price. (Example: 13.5)')
+    .not().isEmpty()
+    .trim()
+    .escape(),
+    check('product_description', 'Please provide a description.')
+    .not().isEmpty()
+    .trim()
+    .escape(),
+    check('product_image', 'Please provide an URL of an image.')
+    .not().isEmpty()
+    .trim()
+    .escape(),
+    check('product_stock', 'Inform the amount we have in stock.')
+    .not().isEmpty()
+    .trim()
+    .escape()
+], productController.addProduct);
 
 app.get("/addToCart", shopController.addToCart);
 app.get("/removeFromCart", shopController.removeFromCart);

@@ -16,7 +16,7 @@ function addProductToDB(product_name, product_price, product_description, produc
             console.log(err);
             callback(err, null);
         }   else {
-        // console.log("Found DB result: " + JSON.stringify(result.rows));
+        
 
         var results = {
             success:true,
