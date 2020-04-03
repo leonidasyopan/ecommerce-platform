@@ -16,11 +16,12 @@
     <header>
         
         <%- include ../partials/header.ejs %>
+        <%- include ../partials/nav.ejs %>
         
     </header>
     <main>
         <div class="content-width">
-            <section class="fullyCenteredBox">
+            <section id="itemDetails" class="fullyCenteredBox">
                 <div class="centeredForm">
                     <h1>Login User</h1>
                     <form action="/login" method="post">                
@@ -36,7 +37,8 @@
     </main>
     <footer>
 
-    </footer>   
+    </footer>
+    <script src="js/functions.js"></script>   
     <script src="js/blur-functions.js"></script>
 </body>    
 </html>

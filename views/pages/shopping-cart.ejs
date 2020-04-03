@@ -14,20 +14,24 @@
     <header>
         
       <%- include ../partials/header.ejs %>
+      <%- include ../partials/nav.ejs %>
         
     </header>
     <main>
       <div class="content-width">
+        <div id="itemDetails" class="fullyCenteredBox">
+            <div class="content-width">
+              <button onclick="clearShoppingCartAjax()" id="clearShoppingCart"><i class="fas fa-trash"></i>Clear Shopping Cart</button>
 
-        <button onclick="clearShoppingCartAjax()" id="clearShoppingCart"><i class="fas fa-trash"></i>Clear Shopping Cart</button>
-
-        <div id="cartList"></div>
-
+              <section id="cartList"></section>
+            </div>
+        </div>
       </div>
     </main>
     <footer>
 
     </footer>
+    <script src="js/functions.js"></script>
     <script src="js/cart-functions.js"></script>
 </body>    
 </html>

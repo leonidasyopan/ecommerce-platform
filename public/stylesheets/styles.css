@@ -175,16 +175,18 @@ input[type="submit"]:hover {
 **/
 
 section.fullyCenteredBox {
-    height: 75vh;
+    height: 65vh; 
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 div.centeredForm {
     width: 100%;
     max-width: 800px;
     text-align: center;
+    margin: 0 auto;
 }
 
 div.centeredForm h1 {
@@ -289,13 +291,14 @@ div.centeredForm select {
 /* SHOPPING CART STYLE */
 
 #clearShoppingCart {
+    margin-top: 30px;
     float: right;
     background: #403042;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 1.3em;
 }
 
