@@ -216,17 +216,18 @@ input[type="submit"]:hover {
     text-align: center;
 }
 
-.item-price-cart form {
+.item-price-cart button {
+    background: transparent;
     width: 30%;
     text-align: center;
     color: #ffffff;
-    font-size: 1.3em;
+    outline:none;
 }
 
 .item-price-cart i {
     background: #10bbd5;
     color: #ffffff;  
-    transition: color 300ms;
+    transition: color 500ms;
 }
 
 .item-price-cart i:hover {

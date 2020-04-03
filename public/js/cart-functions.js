@@ -27,7 +27,19 @@ function addToCartAjax(id) {
             try {
                 var successMessage = JSON.parse(ajax.responseText);
 
-                alert("Item added with success")
+                if(successMessage.success == true) {
+                    // alert("Item added witth success!");
+                    console.log("The item's id was: " + successMessage.id);
+
+                    var iconId = `#faI-${successMessage.id}`;
+
+                    var fontAwesome = document.querySelector(iconId);
+                    fontAwesome.classList.remove('fa-cart-plus');
+                    fontAwesome.classList.add('fa-thumbs-up');
+
+                } else {
+                    window.location.href = '/login-user';
+                }
                 
             }
             catch(err) {
@@ -75,13 +87,8 @@ function buildCartList(dataFromDB) {
         output += `<td><input type="number" id="quantity_product_${dataFromDB.list[i].product_id}" name="quantity" class="quantity" value="1" min="1"></td>`;
         output += `<td>$ ${price}</td>`;
         output += `<td>$ ${Number(price * 1).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</td>`;
-        output += "<td>";
-        /*
-        output += `<form action="/removeFromCart?id=${dataFromDB.list[i].product_id}" method="POST">`;
-        output += `<input type="hidden" name="id" value="${dataFromDB.list[i].product_id}" />`;
-        */
-        output += `<button class="remove-from-cart-button" onclick="removeFromCartAjax(${dataFromDB.list[i].product_id})"><i class="fas fa-trash-alt"></i></button>`;
-        // output += `</form>`;
+        output += "<td>";        
+        output += `<button class="remove-from-cart-button" onclick="removeFromCartAjax(${dataFromDB.list[i].product_id})"><i class="fas fa-trash-alt" id="faIi-${dataFromDB.list[i].product_id}"></i></button>`;        
         output += "</td>";
         output += "</tr>"      
     }
