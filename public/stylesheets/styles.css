@@ -32,7 +32,6 @@ body {
     font-weight: bold;
 }
 
-
 .top-nav {
     background: #403042;
     height: 50px;
@@ -132,7 +131,7 @@ body {
 
 main {
     background: #ffffff;
-    padding: 20px 10px;
+    padding: 20px 20px;
     min-height: 80vh;
     line-height: 1.3em;
 }
@@ -251,14 +250,21 @@ input[type="submit"]:hover {
 
 #clearShoppingCart {
     float: right;
-    background: none;
+    background: #403042;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    color: #10bbd5;
+    color: #ffffff;
     margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+#clearShoppingCart i {
+    margin-right: 10px;
 }
 
 #clearShoppingCart:hover {
-    color: #29D5EF;
+    color: #dddddd;
 }
 
 .shopping-cart-table {
@@ -302,6 +308,8 @@ table th, table td {
 .remove-from-cart-button {
     cursor: pointer;
 }
+
+
 
 /*  
 // MEDIUM SCREENS - MEDIA QUERY BREAK

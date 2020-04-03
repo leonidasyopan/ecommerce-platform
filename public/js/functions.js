@@ -72,7 +72,6 @@ function buildItemList(dataFromDB) {
     var output = '';    
     for (var i=0; i < dataFromDB.list.length; i++){
         var category_name_db = dataFromDB.list[i].category_name;
-        console.log(category_name_db)
         var category_name = "DVD";
 
         switch(category_name_db) {
@@ -110,5 +109,10 @@ function buildItemList(dataFromDB) {
 
 }
 
-
 let getItemButton = document.querySelector("#getItemButton");
+
+
+/********************
+ * ALERT DIALOG BOX * 
+ * ******************/ 
+
