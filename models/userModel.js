@@ -47,6 +47,7 @@ function loginUser(username, password, callback) {
                 }
                 else {
                     console.log(`This should mean that a match was NOT found`);
+                    err = "Password didn't match"
                     callback(err, null);
                 }
             });

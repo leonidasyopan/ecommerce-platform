@@ -44,7 +44,7 @@ function handleLogin(request, response) {
 	productModel.loginUser(username, password, function(error, data) {
 		if(error) {
 			console.log(`Back to handleLogin function inController with error: ${error}`);
-			response.json({success: false});
+			response.json({success: false, message: "Password didn't match. Try again, please!"});
 			response.end();
 		} else {
 			console.log(`Back to handleLogin function inController with NO error.`);
