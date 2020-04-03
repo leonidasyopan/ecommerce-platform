@@ -47,6 +47,7 @@ app.get('/logout', (req, res) => {
 
     if(req.session.username) {
         req.session.destroy();
+        res.clearCookie('delicious-cookie-id');
         return res.render("pages/index.ejs"); 
     }
     else {

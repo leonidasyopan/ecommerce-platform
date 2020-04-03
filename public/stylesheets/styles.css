@@ -22,6 +22,14 @@ body {
     font-weight: bold;
 }
 
+.error {
+    font-style: italic;
+    color: #f86060;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
 .top-nav {
     background: #403042;
     height: 50px;

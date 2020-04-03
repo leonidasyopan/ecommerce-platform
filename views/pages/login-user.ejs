@@ -23,8 +23,9 @@
 
             <h1>Login User</h1>
             <form action="/login" method="post">                
-                <input type="text" placeholder="Username" name="username" id="username"><br>
-                <input type="password" placeholder="Password" name="password" id="password"><br>
+                <input onblur="usernameBlur()" type="text" placeholder="Username" name="username" id="username">
+                <span id="error-username" class="error"></span><br>
+                <input onblur="passwordBlur()" type="password" placeholder="Password" name="password" id="password"><span id="error-password" class="error"></span><br>
                 <input type="submit">
             
             </form>
@@ -34,6 +35,7 @@
     </main>
     <footer>
 
-    </footer>    
+    </footer>   
+    <script src="js/blur-functions.js"></script>
 </body>    
 </html>
