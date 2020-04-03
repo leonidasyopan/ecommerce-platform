@@ -152,7 +152,6 @@ input, select {
     padding: 10px;
     border-radius: 5px;
     margin: 10px 10px 5px 0;
-
 }
 
 input[type="text"], input[type="email"], input[type="password"], select {
@@ -207,6 +206,10 @@ div.centeredForm input[type="submit"] {
     margin-top: 15px;
     float: right;
     margin-right: 15%;
+}
+
+div.centeredForm select {
+    margin: 1px 10px 9px 10px;
 }
 
 /*************/

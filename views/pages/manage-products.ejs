@@ -18,37 +18,41 @@
     </header>
     <main>
         <div class="content-width">
+            <section class="fullyCenteredBox">
+                <div class="centeredForm">
 
-            <h1>Manage Products</h1>
+                    <h1>Manage Products</h1>
 
-            <form action="addProduct" method="POST" id="add-product-form">                
-                
-                <label for="product_name"></label>
-                <input type="text" name="product_name" id="product_name" placeholder="Product Name">
+                    <form action="addProduct" method="POST" id="add-product-form">                
+                        
+                        <label for="product_name"></label>
+                        <input type="text" name="product_name" id="product_name" placeholder="Product Name">
 
-                <label for="product_price"></label>
-                <input type="text" name="product_price" id="product_price" placeholder="Product Price">
+                        <label for="product_price"></label>
+                        <input type="text" name="product_price" id="product_price" placeholder="Product Price">
 
-                <label for="product_description"></label>
-                <input type="text" name="product_description" id="product_description" placeholder="Product Description">
+                        <label for="product_description"></label>
+                        <input type="text" name="product_description" id="product_description" placeholder="Product Description">
 
-                <label for="product_image"></label>
-                <input type="text" name="product_image" id="product_image" placeholder="Product Image URL">
+                        <label for="product_image"></label>
+                        <input type="text" name="product_image" id="product_image" placeholder="Product Image URL">
 
-                <label for="product_category_name"></label>
-                <select id="product_category_name" name="product_category_name">
-                    <option value="1">Book</option>
-                    <option value="2">Smartphone</option>
-                    <option value="3">DVD</option>
-                    <option value="7">Boardgame</option>
-                </select>
+                        <label for="product_category_name"></label>
+                        <select id="product_category_name" name="product_category_name">
+                            <option value="1">Book</option>
+                            <option value="2">Smartphone</option>
+                            <option value="3">DVD</option>
+                            <option value="7">Boardgame</option>
+                        </select>
 
-                <label for="product_stock"></label>
-                <input type="text" name="product_stock" id="product_stock" placeholder="Product Stock Amount">
+                        <label for="product_stock"></label>
+                        <input type="text" name="product_stock" id="product_stock" placeholder="Product Stock Amount">
 
-                <input type="submit" value="Add Product" id="addProduct">
+                        <input type="submit" value="Add Product" id="addProduct">
 
-            </form>
+                    </form>
+                </div>
+            </section>
 
             <div id="product-added-success"></div>
 
