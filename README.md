@@ -30,7 +30,7 @@ Essa é uma API simples para plataforme eCommerce construída em [NodeJS](https:
 
 A interface da aplicação web foi construída usando-se o template EJS [EJS](https://ejs.co/) e é apenas um simples exemplo visual sem uso de bibliotecas, o código CSS é todo criado especificamente para o projeto.
 
-[![Screenshot do projet][product-screenshot]](https://leonidasyopan.com/img/ecommerce-node-project.jpg)
+<img src="https://leonidasyopan.com/img/ecommerce-node-project.jpg" alt="Live Project">
 
 <!-- LICENSE -->
 ## Licença
