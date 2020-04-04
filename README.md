@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://leonidasyopan.com/">
-    <img src="https://leonidasyopan.com/img/logo-leonidas-yopan.png" alt="Logo" width="80" height="80">
+    <img src="https://leonidasyopan.com/img/logo-leonidas-yopan.png" alt="Logo Leonidas Yopan">
   </a>
 
   <h3 align="center">Platforma eCommerce</h3>
@@ -10,8 +10,8 @@
   <p align="center">
     API Para Plataforma eCommerce | NodeJS - Express
     <br />
-    Mais informações sobre o desenvolvedor:
     <br />
+    Mais informações sobre o desenvolvedor:
     <br />
     <a href="https://www.linkedin.com/in/leonidasyopan/" target="_blank">LinkedIn</a>
     ·
