@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://leonidasyopan.com/">
-    <img src="https://leonidasyopan.com/img/logo-leonidas-yopan.png" alt="Logo Leonidas Yopan">
+    <img src="https://leonidasyopan.com/img/logo-leonidas-yopan.png" alt="Logo Leonidas Yopan" width="300" height="94>
   </a>
 
   <h3 align="center">Platforma eCommerce</h3>
