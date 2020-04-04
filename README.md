@@ -1,3 +1,29 @@
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://leonidasyopan.com/">
+    <img src="https://leonidasyopan.com/img/logo-leonidas-yopan.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Platforma eCommerce</h3>
+
+  <p align="center">
+    API Para Plataforma eCommerce | NodeJS - Express
+    <br />
+    Mais informações sobre o desenvolvedor:
+    <br />
+    <br />
+    <a href="https://www.linkedin.com/in/leonidasyopan/" target="_blank">LinkedIn</a>
+    ·
+    <a href="https://twitter.com/leonidasyopan" target="_blank">Twitter</a>
+    ·
+    <a href="https://www.facebook.com/leonidasyopan" target="_blank">Facebook</a>
+    ·
+    <a href="https://leonidasyopan.com/" target="_blank">Portfolio</a>
+  </p>
+</p>
+
+
 # Plataforma eCommerce
 
 Essa é uma API simples para plataforme eCommerce construída em [NodeJS](https://nodejs.org/en/) com o uso do [Express](https://expressjs.com/pt-br/).
