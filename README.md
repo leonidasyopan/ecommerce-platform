@@ -32,6 +32,8 @@ A interface da aplicação web foi construída usando-se o template EJS [EJS](ht
 
 <img src="https://leonidasyopan.com/img/ecommerce-node-project.jpg" alt="Live Project">
 
+This is the live version of it: <a href="https://yopan-store.herokuapp.com/" target="_blank">eCommerce Sample</a> 
+
 <!-- LICENSE -->
 ## Licença
 
